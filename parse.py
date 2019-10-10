@@ -14,9 +14,9 @@ import requests
 
 DATA_BASE = 'tz.sqlite3'
 DIRECT = glob('d:\\camera\\*')
-URL = 'https://services.np.gov.ua/api/v1/CollectMoveVehicles/ReceiveMovementHarpoon'
-TOKEN = "wqKWE9DZACT0tDcpzzzQeXBEO2ZvSbFVSHAKioQ8IvS08arAKGt1v07oCrqULHuY"
-HOST = 'services.np.gov.ua'
+URL = 'URL'
+TOKEN = "TOKEN"
+HOST = 'HOST'
 
 
 def date_convert(srn):
