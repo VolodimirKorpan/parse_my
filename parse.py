@@ -12,8 +12,10 @@ import base64
 import json
 import requests
 
+
 DATA_BASE = 'NAME DATABASE'
 DIRECT = glob('PATH*')
+
 URL = 'URL'
 TOKEN = "TOKEN"
 HOST = 'HOST'
