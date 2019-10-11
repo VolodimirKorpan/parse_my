@@ -12,16 +12,17 @@ import base64
 import json
 import requests
 
-DATA_BASE = 'tz.sqlite3'
-DIRECT = glob('d:\\camera\\*')
-URL = 'https://services.np.gov.ua/api/v1/CollectMoveVehicles/ReceiveMovementHarpoon'
-TOKEN = "wqKWE9DZACT0tDcpzzzQeXBEO2ZvSbFVSHAKioQ8IvS08arAKGt1v07oCrqULHuY"
-HOST = 'services.np.gov.ua'
+DATA_BASE = 'NAME DATABASE'
+DIRECT = glob('PATH*')
+URL = 'URL'
+TOKEN = "TOKEN"
+HOST = 'HOST'
 
 
 def date_convert(srn):
     """
     функція для дати
+
     :param srn:
     :return: Date in format dd.mm.yyyy HH:MM:SS:MS
     """
@@ -38,6 +39,7 @@ def date_convert(srn):
 def spl_date(filename):
     """
     функція роботи з назвою файлу
+
     :param filename:
     :return: date, num
     """
@@ -51,6 +53,7 @@ def spl_date(filename):
 def folderparse(wlk):
     """
     ф-ція перебору файлів у папці
+
     :param wlk:
     :return: None
     """
@@ -70,6 +73,7 @@ def folderparse(wlk):
 def insert(date, pict_path):
     """
     запис в базу даних
+
     :param pict_path:
     :type date: tuple
     """
@@ -87,6 +91,7 @@ def insert(date, pict_path):
 def import_pict_binary(pict_path):
     """
     конвертуєм файл в бінарний для запису в БД
+
     :param pict_path: файл
     :return: pict_path
     """
@@ -97,6 +102,7 @@ def import_pict_binary(pict_path):
 
 def import_json(file, enc):
     """
+    створюєм json і відправляєм на сервак
 
     :param file: tuple
     :param enc: encoding file in utf-8
@@ -104,11 +110,11 @@ def import_json(file, enc):
     """
     data = {
         'version': 1,
-        'provider': 'police26',
+        "provider": "police26",
         'data': {
             'device': {
                 'id': '24484',
-                'name': 'utm_з_Тисмениці_в_ІФ'
+                'name': f'{name}'
             },
             'event': {
                 'id': 'f5fc9132-067a-46c1-b62c-d194d59f1a60',
@@ -125,12 +131,15 @@ def import_json(file, enc):
                      }
                 ],
                 "vehicle": {
-                    "params": [],
                     "licensePlate": {
                         "value": f"{file[1]}",
-                        "country": "  ",
-                        "region": "     "
-                    }
+                        "country": None,
+                        "region": None
+                    }, "params": [
+                    {
+                        "key": None,
+                        "value": None
+                    }]
                 },
                 "media": [
                     {
